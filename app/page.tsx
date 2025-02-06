@@ -18,9 +18,9 @@ export default function Home() {
           zIndex: 1,
         }}
       >
-        <h1 style={{ color: 'white', fontWeight: '200', fontSize: '5rem' }}>
-          Kunstspenglerei Andreas Speiser
-        </h1>
+        {/* <h1 style={{ color: 'white', fontWeight: '200', fontSize: '5rem' }}>
+
+        </h1> */}
       </div>
       <div
         style={{
