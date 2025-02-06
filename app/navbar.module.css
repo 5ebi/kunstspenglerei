@@ -1,0 +1,18 @@
+.navbar {
+  padding: 3rem 5rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  color: white;
+  z-index: 10;
+}
+.navbar ul {
+  display: flex;
+  gap: 2rem;
+  justify-content: right;
+}
+
+.navbar ul li {
+  list-style: none;
+}

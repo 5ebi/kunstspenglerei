@@ -1,0 +1,6 @@
+.main {
+  display: flex;
+  justify-content: center; /* Horizontale Zentrierung */
+  align-items: center; /* Vertikale Zentrierung */
+  height: 100vh; /* Höhe auf die gesamte Ansichtshöhe setzen */
+}
