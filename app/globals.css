@@ -44,3 +44,7 @@ a {
 h1 {
   font-size: 68;
 }
+
+ul {
+  list-style-type: none;
+}

@@ -4,3 +4,18 @@
   align-items: center; /* Vertikale Zentrierung */
   height: 100vh; /* Höhe auf die gesamte Ansichtshöhe setzen */
 }
+
+.kontaktContent {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.infoSection {
+  margin-bottom: 2rem;
+}
+
+.mapSection {
+  width: 100%;
+  margin-top: 2rem;
+}

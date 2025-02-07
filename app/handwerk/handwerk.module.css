@@ -4,3 +4,8 @@
   align-items: center; /* Vertikale Zentrierung */
   height: 100vh; /* Höhe auf die gesamte Ansichtshöhe setzen */
 }
+
+.handwerkcontent {
+  padding-left: 5rem;
+  padding-right: 5rem;
+}

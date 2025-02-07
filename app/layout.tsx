@@ -29,8 +29,8 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         <div style={{ position: 'relative', width: '100%', height: '100vh' }}>
-          <Navbar />
-          {children}
+          {/* <Navbar /> */}
+          <main style={{ paddingTop: '0rem' }}>{children}</main>
         </div>
       </body>
     </html>
