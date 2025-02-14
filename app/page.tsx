@@ -7,6 +7,7 @@ export default function Home() {
   const [imageOpacity, setImageOpacity] = useState(0);
   const [backgroundOpacity, setBackgroundOpacity] = useState(0);
   const [titleOpacity, setTitleOpacity] = useState(1);
+  const [navbarOpacity, setNavbarOpacity] = useState(0);
   const [dimensions, setDimensions] = useState({
     width: '10%',
     totalImages: 100,
@@ -18,7 +19,7 @@ export default function Home() {
       const screenWidth = window.innerWidth;
       const screenHeight = window.innerHeight;
 
-      const baseSize = 100;
+      const baseSize = 70;
       const numColumns = Math.ceil(screenWidth / baseSize) + 1;
       const numRows = Math.ceil(screenHeight / baseSize) + 1;
       const imageWidth = 100 / (numColumns - 1) + '%';
@@ -44,6 +45,10 @@ export default function Home() {
     timeout = setTimeout(() => {
       setTitleOpacity(0);
     }, 2800);
+
+    timeout = setTimeout(() => {
+      setNavbarOpacity(1);
+    }, 4000);
 
     const showNextImage = () => {
       const randomIndex = Math.floor(Math.random() * dimensions.totalImages);
@@ -96,17 +101,36 @@ export default function Home() {
           width: '100%',
           textAlign: 'center',
           top: '50%',
-          left: '50%',
-          transform: 'translate(-50%, -50%)',
+
           opacity: titleOpacity,
           transition: 'opacity 1s ease-in-out', // Smooth fade out
         }}
       >
         kunstspenglerei.at
       </h1>
-
-      <p>kontakt</p>
-      <p>impressum</p>
+      <div
+        style={{
+          color: 'white',
+          fontWeight: '300',
+          position: 'absolute',
+          fontSize: '1rem',
+          zIndex: 2,
+          display: 'flex',
+          flexDirection: 'row',
+          width: '100%',
+          textAlign: 'center',
+          top: '95%',
+          left: '0%',
+          // transform: 'translate(-50%, -50%)',
+          opacity: navbarOpacity,
+          justifyContent: 'center', // Horizontale Zentrierung
+          gap: '2rem', // Abstand zwischen den Elementen
+          transition: 'opacity 1s ease-in-out',
+        }}
+      >
+        <p>kontakt</p>
+        <p>impressum</p>
+      </div>
       {/* Hintergrundbilder */}
       <div
         style={{
