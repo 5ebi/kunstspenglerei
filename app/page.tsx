@@ -43,7 +43,7 @@ export default function Home() {
     // Fade out title at 6 seconds (1 second before first large image)
     timeout = setTimeout(() => {
       setTitleOpacity(0);
-    }, 6000);
+    }, 2800);
 
     const showNextImage = () => {
       // Neues Bild wählen
@@ -91,9 +91,9 @@ export default function Home() {
       <h1
         style={{
           color: 'white',
-          fontWeight: '100',
+          fontWeight: '300',
           position: 'absolute',
-          fontSize: '14rem',
+          fontSize: '2rem',
           zIndex: 2,
           width: '100%',
           textAlign: 'center',
@@ -104,9 +104,11 @@ export default function Home() {
           transition: 'opacity 1s ease-in-out', // Smooth fade out
         }}
       >
-        Kunst<br></br>spenglerei<br></br>.at
+        kunstspenglerei.at
       </h1>
 
+      <p>kontakt</p>
+      <p>impressum</p>
       {/* Hintergrundbilder */}
       <div
         style={{
