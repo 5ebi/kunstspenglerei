@@ -1,69 +1,171 @@
+'use client';
 import Image from 'next/image';
-import styles from './page.module.css';
+import { useEffect, useState } from 'react';
 
 export default function Home() {
+  const [highlightedIndex, setHighlightedIndex] = useState<number | null>(null);
+  const [imageOpacity, setImageOpacity] = useState(0);
+  const [backgroundOpacity, setBackgroundOpacity] = useState(0);
+  const [titleOpacity, setTitleOpacity] = useState(1); // New state for title opacity
+  const [isShowingLarge, setIsShowingLarge] = useState(false);
+
+  // Calculate image size to ensure full coverage
+  const calcImageSize = () => {
+    const screenWidth = window.innerWidth;
+    const screenHeight = window.innerHeight;
+
+    // Fixed image base size
+    const baseSize = 100;
+
+    // Calculate number of images needed (add +2 to ensure overflow)
+    const numColumns = Math.ceil(screenWidth / baseSize) + 1;
+    const numRows = Math.ceil(screenHeight / baseSize) + 1;
+
+    // Calculate image size as percentage to ensure full coverage
+    const imageWidth = 100 / (numColumns - 1) + '%';
+
+    return {
+      width: imageWidth,
+      totalImages: numColumns * numRows,
+    };
+  };
+
+  const { width, totalImages } = calcImageSize();
+
+  useEffect(() => {
+    let timeout: NodeJS.Timeout;
+
+    // Show background images after 3 seconds
+    timeout = setTimeout(() => {
+      setBackgroundOpacity(0.5); // Changed from 0.2 to 0.5
+    }, 3000);
+
+    // Fade out title at 6 seconds (1 second before first large image)
+    timeout = setTimeout(() => {
+      setTitleOpacity(0);
+    }, 6000);
+
+    const showNextImage = () => {
+      // Neues Bild wählen
+      const randomIndex = Math.floor(Math.random() * totalImages);
+      setHighlightedIndex(randomIndex);
+      setImageOpacity(0);
+      setIsShowingLarge(true);
+      setBackgroundOpacity(0.1); // Reduce background opacity
+
+      // Einblenden
+      timeout = setTimeout(() => {
+        setImageOpacity(1);
+
+        // 3 Sekunden anzeigen
+        timeout = setTimeout(() => {
+          // Ausblenden
+          setImageOpacity(0);
+          setIsShowingLarge(false);
+          setBackgroundOpacity(0.5); // Reset background opacity
+
+          // 3 Sekunden Pause vor nächstem Bild
+          timeout = setTimeout(showNextImage, 3000);
+        }, 5000);
+      }, 100);
+    };
+
+    // Initial delay of 7 seconds before starting the image cycle
+    timeout = setTimeout(() => {
+      showNextImage();
+    }, 7000);
+
+    return () => clearTimeout(timeout);
+  }, [totalImages]);
+
   return (
-    <div style={{ position: 'relative', width: '100%', height: '100vh' }}>
-      <Image
-        src="/img/image1.jpg"
-        alt="Metall-Handwerker in Werkstatt"
-        fill
-        style={{ objectFit: 'cover' }}
-      />
-      <Image
-        src="/img/image2.jpg"
-        alt="Metall-Handwerker in Werkstatt"
-        fill
-        style={{ objectFit: 'cover' }}
-      />
-      <Image
-        src="/img/image3.jpg"
-        alt="Metall-Handwerker in Werkstatt"
-        fill
-        style={{ objectFit: 'cover' }}
-      />
-      <Image
-        src="/img/image4.jpg"
-        alt="Metall-Handwerker in Werkstatt"
-        fill
-        style={{ objectFit: 'cover' }}
-      />
-      <Image
-        src="/img/image5.jpg"
-        alt="Metall-Handwerker in Werkstatt"
-        fill
-        style={{ objectFit: 'cover' }}
-      />
-      <Image
-        src="/img/image6.jpg"
-        alt="Metall-Handwerker in Werkstatt"
-        fill
-        style={{ objectFit: 'cover' }}
-      />
-      <Image
-        src="/img/image7.jpg"
-        alt="Metall-Handwerker in Werkstatt"
-        fill
-        style={{ objectFit: 'cover' }}
-      />
-      <Image
-        src="/img/image8.jpg"
-        alt="Metall-Handwerker in Werkstatt"
-        fill
-        style={{ objectFit: 'cover' }}
-      />
-      <Image
-        src="/img/image9.jpg"
-        alt="Metall-Handwerker in Werkstatt"
-        fill
-        style={{ objectFit: 'cover' }}
-      />
-      <Image
-        src="/img/image10.jpg"
-        alt="Metall-Handwerker in Werkstatt"
-        fill
-        style={{ objectFit: 'cover' }}
-      />
+    <div
+      style={{
+        position: 'relative',
+        width: '100vw',
+        height: '100vh',
+        background: 'black',
+        overflow: 'hidden',
+      }}
+    >
+      <h1
+        style={{
+          color: 'white',
+          fontWeight: '100',
+          position: 'absolute',
+          fontSize: '14rem',
+          zIndex: 2,
+          width: '100%',
+          textAlign: 'center',
+          top: '50%',
+          left: '50%',
+          transform: 'translate(-50%, -50%)',
+          opacity: titleOpacity,
+          transition: 'opacity 1s ease-in-out', // Smooth fade out
+        }}
+      >
+        Kunst<br></br>spenglerei<br></br>.at
+      </h1>
+
+      {/* Hintergrundbilder */}
+      <div
+        style={{
+          position: 'absolute',
+          width: 'calc(100% + 10px)', // Add extra width to prevent gaps
+          height: '100%',
+          display: 'flex',
+          flexWrap: 'wrap',
+          marginLeft: '-5px',
+          marginTop: '-5px',
+        }}
+      >
+        {[...Array(totalImages)].map((_, index) => (
+          <div
+            key={index}
+            style={{
+              position: 'relative',
+              width: width,
+              aspectRatio: '1',
+            }}
+          >
+            <Image
+              src={`/img/image${(index % 10) + 1}.jpg`}
+              alt={`Bild ${index + 1}`}
+              fill
+              style={{
+                objectFit: 'cover',
+                opacity: backgroundOpacity,
+                transition: 'opacity 2s ease-in-out',
+              }}
+              quality={100}
+            />
+          </div>
+        ))}
+      </div>
+
+      {/* Hervorgehobenes Bild */}
+      {highlightedIndex !== null && (
+        <div
+          style={{
+            position: 'absolute',
+            top: '15vh',
+            left: '15vw',
+            width: '70vw',
+            height: '70vh',
+            zIndex: 3,
+            opacity: imageOpacity,
+            transition: 'opacity 2s ease-in-out',
+          }}
+        >
+          <Image
+            src={`/img/image${(highlightedIndex % 10) + 1}.jpg`}
+            alt={`Hervorgehobenes Bild ${highlightedIndex}`}
+            fill
+            style={{ objectFit: 'cover' }}
+            quality={100}
+          />
+        </div>
+      )}
     </div>
   );
 }
