@@ -6,51 +6,50 @@ export default function Home() {
   const [highlightedIndex, setHighlightedIndex] = useState<number | null>(null);
   const [imageOpacity, setImageOpacity] = useState(0);
   const [backgroundOpacity, setBackgroundOpacity] = useState(0);
-  const [titleOpacity, setTitleOpacity] = useState(1); // New state for title opacity
-  const [isShowingLarge, setIsShowingLarge] = useState(false);
+  const [titleOpacity, setTitleOpacity] = useState(1);
+  const [dimensions, setDimensions] = useState({
+    width: '10%',
+    totalImages: 100,
+  });
 
-  // Calculate image size to ensure full coverage
-  const calcImageSize = () => {
-    const screenWidth = window.innerWidth;
-    const screenHeight = window.innerHeight;
+  // Move window calculations into useEffect
+  useEffect(() => {
+    const calcImageSize = () => {
+      const screenWidth = window.innerWidth;
+      const screenHeight = window.innerHeight;
 
-    // Fixed image base size
-    const baseSize = 100;
+      const baseSize = 100;
+      const numColumns = Math.ceil(screenWidth / baseSize) + 1;
+      const numRows = Math.ceil(screenHeight / baseSize) + 1;
+      const imageWidth = 100 / (numColumns - 1) + '%';
 
-    // Calculate number of images needed (add +2 to ensure overflow)
-    const numColumns = Math.ceil(screenWidth / baseSize) + 1;
-    const numRows = Math.ceil(screenHeight / baseSize) + 1;
-
-    // Calculate image size as percentage to ensure full coverage
-    const imageWidth = 100 / (numColumns - 1) + '%';
-
-    return {
-      width: imageWidth,
-      totalImages: numColumns * numRows,
+      setDimensions({
+        width: imageWidth,
+        totalImages: numColumns * numRows,
+      });
     };
-  };
 
-  const { width, totalImages } = calcImageSize();
+    calcImageSize();
+    window.addEventListener('resize', calcImageSize);
+    return () => window.removeEventListener('resize', calcImageSize);
+  }, []);
 
   useEffect(() => {
     let timeout: NodeJS.Timeout;
 
-    // Show background images after 3 seconds
     timeout = setTimeout(() => {
-      setBackgroundOpacity(0.5); // Changed from 0.2 to 0.5
+      setBackgroundOpacity(0.5);
     }, 3000);
 
-    // Fade out title at 6 seconds (1 second before first large image)
     timeout = setTimeout(() => {
       setTitleOpacity(0);
     }, 2800);
 
     const showNextImage = () => {
-      // Neues Bild wählen
-      const randomIndex = Math.floor(Math.random() * totalImages);
+      const randomIndex = Math.floor(Math.random() * dimensions.totalImages);
       setHighlightedIndex(randomIndex);
       setImageOpacity(0);
-      setIsShowingLarge(true);
+
       setBackgroundOpacity(0.1); // Reduce background opacity
 
       // Einblenden
@@ -61,7 +60,7 @@ export default function Home() {
         timeout = setTimeout(() => {
           // Ausblenden
           setImageOpacity(0);
-          setIsShowingLarge(false);
+
           setBackgroundOpacity(0.5); // Reset background opacity
 
           // 3 Sekunden Pause vor nächstem Bild
@@ -70,13 +69,12 @@ export default function Home() {
       }, 100);
     };
 
-    // Initial delay of 7 seconds before starting the image cycle
     timeout = setTimeout(() => {
       showNextImage();
     }, 7000);
 
     return () => clearTimeout(timeout);
-  }, [totalImages]);
+  }, [dimensions.totalImages]);
 
   return (
     <div
@@ -121,12 +119,12 @@ export default function Home() {
           marginTop: '-5px',
         }}
       >
-        {[...Array(totalImages)].map((_, index) => (
+        {[...Array(dimensions.totalImages)].map((_, index) => (
           <div
             key={index}
             style={{
               position: 'relative',
-              width: width,
+              width: dimensions.width,
               aspectRatio: '1',
             }}
           >
