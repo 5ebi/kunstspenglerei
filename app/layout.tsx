@@ -1,5 +1,7 @@
 import './globals.css';
+import { Navbar } from '@/components/Navbar';
 import type { Metadata } from 'next';
+import React from 'react';
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -15,7 +17,7 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <div style={{ position: 'relative', width: '100%', height: '100vh' }}>
-          {/* <Navbar /> */}
+          <Navbar />
           <main style={{ paddingTop: '0rem' }}>{children}</main>
         </div>
       </body>
