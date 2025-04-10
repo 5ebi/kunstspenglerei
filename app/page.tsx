@@ -7,6 +7,7 @@ export default function Home() {
   const [imageOpacity, setImageOpacity] = useState(0);
   const [backgroundOpacity, setBackgroundOpacity] = useState(0);
   const [titleOpacity, setTitleOpacity] = useState(1);
+  const [titleScale, setTitleScale] = useState(0.1);
   const [navbarOpacity, setNavbarOpacity] = useState(0);
   const [dimensions, setDimensions] = useState({
     width: '10%',
@@ -49,6 +50,10 @@ export default function Home() {
     timeout = setTimeout(() => {
       setNavbarOpacity(1);
     }, 4000);
+
+    setTimeout(() => {
+      setTitleScale(1);
+    }, 500); // also nach 0.5 Sekunden startet das "ranzoomen"
 
     const showNextImage = () => {
       const randomIndex = Math.floor(Math.random() * dimensions.totalImages);
@@ -101,12 +106,13 @@ export default function Home() {
           width: '100%',
           textAlign: 'center',
           top: '50%',
+          transform: `scale(${titleScale})`,
 
           opacity: titleOpacity,
           transition: 'opacity 1s ease-in-out', // Smooth fade out
         }}
       >
-        kunstspenglerei.at
+        kunstspengler.at
       </h1>
       <div
         style={{
