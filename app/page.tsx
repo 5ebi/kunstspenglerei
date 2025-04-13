@@ -7,7 +7,8 @@ export default function Home() {
   const [imageOpacity, setImageOpacity] = useState(0);
   const [backgroundOpacity, setBackgroundOpacity] = useState(0);
   const [titleOpacity, setTitleOpacity] = useState(1);
-  const [titleScale, setTitleScale] = useState(0.1);
+  const [titleScale, setTitleScale] = useState(1);
+  const [titleBlur, setTitleBlur] = useState(0);
   const [navbarOpacity, setNavbarOpacity] = useState(0);
   const [dimensions, setDimensions] = useState({
     width: '10%',
@@ -52,8 +53,12 @@ export default function Home() {
     }, 4000);
 
     setTimeout(() => {
-      setTitleScale(1);
-    }, 500); // also nach 0.5 Sekunden startet das "ranzoomen"
+      setTitleScale(5);
+    }, 1500);
+
+    setTimeout(() => {
+      setTitleScale(1000);
+    }, 3000);
 
     const showNextImage = () => {
       const randomIndex = Math.floor(Math.random() * dimensions.totalImages);
@@ -107,9 +112,11 @@ export default function Home() {
           textAlign: 'center',
           top: '50%',
           transform: `scale(${titleScale})`,
-
+          filter: `blur(${titleBlur}px)`,
           opacity: titleOpacity,
-          transition: 'opacity 1s ease-in-out', // Smooth fade out
+          transition:
+            'transform 7s cubic-bezier(0.01, 0, 0.2, 1), opacity 1s ease-in-out',
+          transformOrigin: 'center center',
         }}
       >
         kunstspengler.at
