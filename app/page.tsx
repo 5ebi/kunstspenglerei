@@ -52,14 +52,6 @@ export default function Home() {
       setNavbarOpacity(1);
     }, 4000);
 
-    setTimeout(() => {
-      setTitleScale(5);
-    }, 1500);
-
-    setTimeout(() => {
-      setTitleScale(1000);
-    }, 3000);
-
     const showNextImage = () => {
       const randomIndex = Math.floor(Math.random() * dimensions.totalImages);
       setHighlightedIndex(randomIndex);
@@ -92,117 +84,138 @@ export default function Home() {
   }, [dimensions.totalImages]);
 
   return (
-    <div
-      style={{
-        position: 'relative',
-        width: '100vw',
-        height: '100vh',
-        background: 'black',
-        overflow: 'hidden',
-      }}
-    >
-      <h1
-        style={{
-          color: 'white',
-          fontWeight: '300',
-          position: 'absolute',
-          fontSize: '2rem',
-          zIndex: 2,
-          width: '100%',
-          textAlign: 'center',
-          top: '50%',
-          transform: `scale(${titleScale})`,
-          filter: `blur(${titleBlur}px)`,
-          opacity: titleOpacity,
-          transition:
-            'transform 7s cubic-bezier(0.01, 0, 0.2, 1), opacity 1s ease-in-out',
-          transformOrigin: 'center center',
-        }}
-      >
-        kunstspengler.at
-      </h1>
+    <>
+      {/* <style jsx global>{`
+        @keyframes zoomIn {
+          0% {
+            transform: scale(1);
+          }
+          20% {
+            transform: scale(1.1);
+          }
+          40% {
+            transform: scale(1.3);
+          }
+          60% {
+            transform: scale(2);
+          }
+          80% {
+            transform: scale(5);
+          }
+          100% {
+            transform: scale(1000);
+          }
+        }
+      `}</style> */}
       <div
         style={{
-          color: 'white',
-          fontWeight: '300',
-          position: 'absolute',
-          fontSize: '1rem',
-          zIndex: 2,
-          display: 'flex',
-          flexDirection: 'row',
-          width: '100%',
-          textAlign: 'center',
-          top: '95%',
-          left: '0%',
-          // transform: 'translate(-50%, -50%)',
-          opacity: navbarOpacity,
-          justifyContent: 'center', // Horizontale Zentrierung
-          gap: '2rem', // Abstand zwischen den Elementen
-          transition: 'opacity 1s ease-in-out',
+          position: 'relative',
+          width: '100vw',
+          height: '100vh',
+          background: 'black',
+          overflow: 'hidden',
         }}
       >
-        <p>kontakt</p>
-        <p>impressum</p>
-      </div>
-      {/* Hintergrundbilder */}
-      <div
-        style={{
-          position: 'absolute',
-          width: 'calc(100% + 10px)', // Add extra width to prevent gaps
-          height: '100%',
-          display: 'flex',
-          flexWrap: 'wrap',
-          marginLeft: '-5px',
-          marginTop: '-5px',
-        }}
-      >
-        {[...Array(dimensions.totalImages)].map((_, index) => (
-          <div
-            key={index}
-            style={{
-              position: 'relative',
-              width: dimensions.width,
-              aspectRatio: '1',
-            }}
-          >
-            <Image
-              src={`/img/image${(index % 10) + 1}.jpg`}
-              alt={`Bild ${index + 1}`}
-              fill
-              style={{
-                objectFit: 'cover',
-                opacity: backgroundOpacity,
-                transition: 'opacity 2s ease-in-out',
-              }}
-              quality={100}
-            />
-          </div>
-        ))}
-      </div>
-
-      {/* Hervorgehobenes Bild */}
-      {highlightedIndex !== null && (
+        <h1
+          style={{
+            color: 'white',
+            fontWeight: '300',
+            position: 'absolute',
+            fontSize: '2rem',
+            zIndex: 2,
+            width: '100%',
+            textAlign: 'center',
+            top: '50%',
+            // animation: 'zoomIn 3s cubic-bezier(0.11, 0, 0.83, 0.83) forwards',
+            opacity: titleOpacity,
+            transformOrigin: 'center center',
+          }}
+        >
+          kunstspengler.at
+        </h1>
+        <div
+          style={{
+            color: 'white',
+            fontWeight: '300',
+            position: 'absolute',
+            fontSize: '1rem',
+            zIndex: 2,
+            display: 'flex',
+            flexDirection: 'row',
+            width: '100%',
+            textAlign: 'center',
+            top: '95%',
+            left: '0%',
+            // transform: 'translate(-50%, -50%)',
+            opacity: navbarOpacity,
+            justifyContent: 'center', // Horizontale Zentrierung
+            gap: '2rem', // Abstand zwischen den Elementen
+            transition: 'opacity 1s ease-in-out',
+          }}
+        >
+          <p>kontakt</p>
+          <p>impressum</p>
+        </div>
+        {/* Hintergrundbilder */}
         <div
           style={{
             position: 'absolute',
-            top: '15vh',
-            left: '15vw',
-            width: '70vw',
-            height: '70vh',
-            zIndex: 3,
-            opacity: imageOpacity,
-            transition: 'opacity 2s ease-in-out',
+            width: 'calc(100% + 10px)', // Add extra width to prevent gaps
+            height: '100%',
+            display: 'flex',
+            flexWrap: 'wrap',
+            marginLeft: '-5px',
+            marginTop: '-5px',
           }}
         >
-          <Image
-            src={`/img/image${(highlightedIndex % 10) + 1}.jpg`}
-            alt={`Hervorgehobenes Bild ${highlightedIndex}`}
-            fill
-            style={{ objectFit: 'cover' }}
-            quality={100}
-          />
+          {[...Array(dimensions.totalImages)].map((_, index) => (
+            <div
+              key={index}
+              style={{
+                position: 'relative',
+                width: dimensions.width,
+                aspectRatio: '1',
+              }}
+            >
+              <Image
+                src={`/img/image${(index % 10) + 1}.jpg`}
+                alt={`Bild ${index + 1}`}
+                fill
+                style={{
+                  objectFit: 'cover',
+                  opacity: backgroundOpacity,
+                  transition: 'opacity 2s ease-in-out',
+                }}
+                quality={100}
+              />
+            </div>
+          ))}
         </div>
-      )}
-    </div>
+
+        {/* Hervorgehobenes Bild */}
+        {highlightedIndex !== null && (
+          <div
+            style={{
+              position: 'absolute',
+              top: '15vh',
+              left: '15vw',
+              width: '70vw',
+              height: '70vh',
+              zIndex: 3,
+              opacity: imageOpacity,
+              transition: 'opacity 2s ease-in-out',
+            }}
+          >
+            <Image
+              src={`/img/image${(highlightedIndex % 10) + 1}.jpg`}
+              alt={`Hervorgehobenes Bild ${highlightedIndex}`}
+              fill
+              style={{ objectFit: 'cover' }}
+              quality={100}
+            />
+          </div>
+        )}
+      </div>
+    </>
   );
 }
