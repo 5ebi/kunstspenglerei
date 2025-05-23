@@ -1,11 +1,11 @@
-import styles from './handwerk.module.css';
+import styles from './geschichte.module.css';
 
 export default function handwerk() {
   return (
-    <div className={styles.main}>
-      <div className={styles.handwerkcontent}>
-        <h1>Tradition trifft Innovation</h1>
+    <div className={styles.geschichteContent}>
+      <h1>Tradition trifft Innovation</h1>
 
+      <div className={styles.handwerkcontent}>
         <h2>Familienbetrieb in dritter Generation</h2>
         <p>
           Seit 1952 fertigen wir edle Metallarbeiten in unserer

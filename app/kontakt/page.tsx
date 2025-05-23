@@ -19,9 +19,8 @@ export default function Kontakt() {
         <iframe
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2657.891959615014!2d16.350552776652687!3d48.23991644587386!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x476d07eb3332a3eb%3A0x27c4e4124b69f123!2sBillrothstra%C3%9Fe%2056%2C%201190%20Wien!5e0!3m2!1sde!2sat!4v1707328901138!5m2!1sde!2sat"
           width="100%"
-          height="450"
-          style={{ border: 0 }}
-          // allowFullScreen=""
+          height="400"
+          style={{ border: 0, boxShadow: '0 4px 20px rgba(0, 0, 0, 0.15)' }}
           loading="lazy"
           referrerPolicy="no-referrer-when-downgrade"
         />

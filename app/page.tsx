@@ -7,8 +7,8 @@ export default function Home() {
   const [imageOpacity, setImageOpacity] = useState(0);
   const [backgroundOpacity, setBackgroundOpacity] = useState(0);
   const [titleOpacity, setTitleOpacity] = useState(1);
-  const [titleScale, setTitleScale] = useState(1);
-  const [titleBlur, setTitleBlur] = useState(0);
+  // const [titleScale, setTitleScale] = useState(1);
+  // const [titleBlur, setTitleBlur] = useState(0);
   const [navbarOpacity, setNavbarOpacity] = useState(0);
   const [dimensions, setDimensions] = useState({
     width: '10%',

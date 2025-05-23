@@ -1,21 +1,32 @@
-.main {
-  display: flex;
-  justify-content: center; /* Horizontale Zentrierung */
-  align-items: center; /* Vertikale Zentrierung */
-  height: 100vh; /* Höhe auf die gesamte Ansichtshöhe setzen */
-}
-
 .kontaktContent {
   max-width: 800px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 3rem 2rem;
 }
 
 .infoSection {
-  margin-bottom: 2rem;
+  margin: 2rem 0 3rem;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.infoSection h2 {
+  margin: 1.5rem 0 0.8rem;
+}
+
+.infoSection h2:first-child {
+  margin-top: 0;
+}
+
+.infoSection p {
+  margin: 0.3rem 0;
 }
 
 .mapSection {
   width: 100%;
   margin-top: 2rem;
+  border-radius: 8px;
+  overflow: hidden;
 }

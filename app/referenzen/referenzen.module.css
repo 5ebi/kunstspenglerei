@@ -1,6 +1,28 @@
-.main {
-  display: flex;
-  justify-content: center; /* Horizontale Zentrierung */
-  align-items: center; /* Vertikale Zentrierung */
-  height: 100vh; /* Höhe auf die gesamte Ansichtshöhe setzen */
+.referenzenContent {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.textContainer {
+  margin-bottom: 3rem;
+  padding: 1.5rem;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.textContainer:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
+}
+
+.textContainer h2 {
+  margin-bottom: 1rem;
+  color: #fff;
+}
+
+.textContainer p {
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.6;
 }

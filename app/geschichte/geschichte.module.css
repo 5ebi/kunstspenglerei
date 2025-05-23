@@ -1,0 +1,42 @@
+.geschichteContent {
+  max-width: 1800px;
+  margin: 0 auto;
+  padding: 3rem 2rem;
+}
+
+.handwerkcontent {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 3rem 2rem;
+}
+
+.handwerkcontent {
+  margin: 2rem 0 3rem;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.handwerkcontent h2 {
+  margin: 1.5rem 0 0.8rem;
+}
+
+.handwerkcontent h2:first-child {
+  margin-top: 0;
+}
+
+.handwerkcontent p {
+  margin: 0.3rem 0;
+}
+
+.handwerkcontent ul {
+  margin: 0.5rem 0;
+  padding-left: 1.2rem;
+  list-style-type: disc;
+}
+
+.handwerkcontent ul li {
+  margin: 0.3rem 0;
+  color: rgba(255, 255, 255, 0.9);
+}
