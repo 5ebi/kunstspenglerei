@@ -1,7 +1,7 @@
 import './globals.css';
 import { Navbar } from '@/components/Navbar';
 import type { Metadata } from 'next';
-import { Montserrat, Titillium_Web } from 'next/font/google';
+import { Montserrat, Rajdhani, Titillium_Web } from 'next/font/google';
 import React from 'react';
 
 const montserrat = Montserrat({
@@ -9,10 +9,17 @@ const montserrat = Montserrat({
   variable: '--font-montserrat',
 });
 
-const titillium_web = Titillium_Web({
-  weight: '700',
+const titillium = Titillium_Web({
+  weight: ['200', '300', '400', '600', '700', '900'],
+  style: ['normal', 'italic'],
   subsets: ['latin'],
-  variable: '--font-titillium_web',
+  variable: '--font-titillium',
+});
+
+const rajdhani = Rajdhani({
+  weight: ['300', '400', '500', '600', '700'],
+  subsets: ['latin'],
+  variable: '--font-rajdhani',
 });
 export const metadata: Metadata = {
   title: 'Website der Kunstspenglerei Andreas Speiser, 1190 Wien',
@@ -28,7 +35,7 @@ export default function RootLayout({
   return (
     <html
       lang="de"
-      className={`${montserrat.variable} ${titillium_web.variable}`}
+      className={`${montserrat.variable} ${titillium.variable} ${rajdhani.variable}`}
     >
       <body>
         <div style={{ position: 'relative', width: '100%', height: '100vh' }}>

@@ -44,13 +44,34 @@ a {
 }
 
 h1 {
-  font-size: 68;
-  font-family: var(--font-titilium_web);
+  font-size: 52px;
+  font-family: var(--font-montserrat);
   margin-bottom: 3rem;
   top: 3rem;
   margin-top: 10rem;
+  font-weight: 600;
+}
+
+h2 {
+  font-size: 32px;
+  font-family: var(--font-montserrat);
+  margin-bottom: 3rem;
+  top: 3rem;
+  margin-top: 10rem;
+  font-weight: 500;
 }
 
 ul {
   list-style-type: none;
+}
+
+p {
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.95);
+  font-family: var(--font-titillium);
+}
+
+li {
+  color: rgba(255, 255, 255, 0.8);
+  font-family: var(--font-titillium);
 }

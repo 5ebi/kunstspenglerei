@@ -1,5 +1,5 @@
 .geschichteContent {
-  max-width: 1800px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 3rem 2rem;
 }
@@ -38,5 +38,4 @@
 
 .handwerkcontent ul li {
   margin: 0.3rem 0;
-  color: rgba(255, 255, 255, 0.9);
 }
