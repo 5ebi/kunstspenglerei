@@ -1,19 +1,22 @@
 import Image from 'next/image';
 import styles from './geschichte.module.css';
 
-export default function handwerk() {
+export default function Geschichte() {
   return (
     <div className={styles.background}>
       <Image
-        src="https://thumbs.dreamstime.com/z/white-circle-round-point-black-background-design-pattern-wallpaper-tile-vector-illustration-160157453.jpg"
+        src="/img/pexels-brett-sayles-26545626.jpg"
         alt="Hintergrundbild"
+        className={styles.backgroundImage}
         fill
-        style={{ objectFit: 'cover', opacity: 0.15 }}
+        style={{}}
         quality={100}
         priority
       />
       <div className={styles.geschichteContent}>
-        <h1>Tradition trifft Innovation</h1>
+        <h1>
+          Tradition <em>trifft</em> Innovation
+        </h1>
 
         <div className={styles.handwerkcontent}>
           <h2>Familienbetrieb in dritter Generation</h2>
