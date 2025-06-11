@@ -19,7 +19,8 @@ body {
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: var(--font-montserrat), Arial, Helvetica, sans-serif;
+  font-family: var(--font-montserrat), var(--font-spacegrotesk), Arial,
+    Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
@@ -49,7 +50,8 @@ h1 {
   margin-bottom: 4rem;
   top: 3rem;
   margin-top: 10rem;
-  font-weight: 900;
+  font-weight: 00;
+  opacity: 0.9;
 }
 
 h2 {
@@ -58,7 +60,8 @@ h2 {
   margin-bottom: 3rem;
   top: 3rem;
   margin-top: 10rem;
-  font-weight: 500;
+  font-weight: 400;
+  opacity: 0.8;
 }
 
 ul {
@@ -68,10 +71,10 @@ ul {
 p {
   font-size: 16px;
   color: rgba(255, 255, 255, 0.95);
-  font-family: var(--font-titillium);
+  font-family: var(--font-spacegrotesk);
 }
 
 li {
   color: rgba(255, 255, 255, 0.8);
-  font-family: var(--font-titillium);
+  font-family: var(--font-spacegrotesk);
 }
