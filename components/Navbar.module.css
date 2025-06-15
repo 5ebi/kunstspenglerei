@@ -1,6 +1,6 @@
 .navbar {
   position: fixed;
-  /* top: 20px; */
+  top: 0.2rem;
   z-index: 10;
   /* padding-left: 1rem;
   padding-right: 1rem; */
@@ -22,7 +22,6 @@
   list-style-type: none;
   margin: 0;
   padding: 0;
-  gap: 0rem;
   height: 100%;
   align-items: center;
   justify-content: center;
@@ -30,18 +29,19 @@
 
 .link {
   text-decoration: none;
-  color: rgba(255, 255, 255, 0.7);
+  color: rgba(255, 255, 255, 0.8);
   position: relative;
-  padding: 0.3rem 3rem;
+  padding: 0.3rem 1rem;
   font-weight: 400;
-  font-size: 1.3rem;
-  letter-spacing: 0.9px;
+  font-size: 1.1rem;
+  letter-spacing: 0.3px;
   transition: all 0.2s ease;
-  font-family: var(--font-montserrat);
+  font-family: var(--font-spacegrotesk);
 }
 
 .link:hover {
   color: white;
+  font-weight: 400;
 }
 
 .link::after {
@@ -51,7 +51,7 @@
   left: 50%;
   width: 0;
   height: 1px;
-  background: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.7);
   transition: all 0.3s ease;
   transform: translateX(-50%);
 }
