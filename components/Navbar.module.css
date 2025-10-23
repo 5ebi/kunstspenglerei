@@ -2,19 +2,13 @@
   position: fixed;
   top: 0.2rem;
   z-index: 10;
-  /* padding-left: 1rem;
-  padding-right: 1rem; */
-  /* backdrop-filter: blur(5px); */
-  /* background-color: #00000000; */
   color: white;
   height: 2.5rem;
-  /* border-radius: 5px; */
-  /* left: 50%; */
-  /* transform: translateX(-50%); */
-  /* box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1); */
-
-  /* border: 1px solid rgba(0, 0, 0, 0.5); */
   width: 100%;
+}
+
+.navbarBlack {
+  color: black;
 }
 
 .navList {
@@ -58,4 +52,16 @@
 
 .link:hover::after {
   width: 60%;
+}
+
+.navbarBlack .link {
+  color: rgba(0, 0, 0, 0.8);
+}
+
+.navbarBlack .link:hover {
+  color: black;
+}
+
+.navbarBlack .link::after {
+  background: black;
 }

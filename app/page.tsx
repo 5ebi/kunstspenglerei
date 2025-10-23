@@ -85,28 +85,6 @@ export default function Home() {
 
   return (
     <>
-      {/* <style jsx global>{`
-        @keyframes zoomIn {
-          0% {
-            transform: scale(1);
-          }
-          20% {
-            transform: scale(1.1);
-          }
-          40% {
-            transform: scale(1.3);
-          }
-          60% {
-            transform: scale(2);
-          }
-          80% {
-            transform: scale(5);
-          }
-          100% {
-            transform: scale(1000);
-          }
-        }
-      `}</style> */}
       <div
         style={{
           position: 'relative',
@@ -186,7 +164,7 @@ export default function Home() {
                   opacity: backgroundOpacity,
                   transition: 'opacity 2s ease-in-out',
                 }}
-                quality={100}
+                quality={10}
               />
             </div>
           ))}
@@ -211,7 +189,7 @@ export default function Home() {
               alt={`Hervorgehobenes Bild ${highlightedIndex}`}
               fill
               style={{ objectFit: 'cover' }}
-              quality={100}
+              quality={90}
             />
           </div>
         )}

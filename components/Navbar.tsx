@@ -1,22 +1,32 @@
 'use client';
 import Link from 'next/link';
-// import { usePathname } from 'next/navigation';
 import React from 'react';
 import styles from './Navbar.module.css';
 
-export function Navbar() {
-  // const pathname = usePathname();
-  // const isHome = pathname === '/';
+type NavbarProps = {
+  variant?: 'default' | 'black';
+};
+
+export function Navbar({ variant = 'default' }: NavbarProps) {
+  const navClassName =
+    variant === 'black'
+      ? `${styles.navbar} ${styles.navbarBlack}`
+      : styles.navbar;
+
   return (
     <div>
-      <nav className={styles.navbar}>
+      <nav className={navClassName}>
         <ul className={styles.navList}>
           <li>
             <Link className={styles.link} href={'/'}>
               Home
             </Link>
           </li>
-
+          <li>
+            <Link className={styles.link} href={'/testdesign'}>
+              TEST
+            </Link>
+          </li>
           <li>
             <Link className={styles.link} href={'/geschichte'}>
               Geschichte

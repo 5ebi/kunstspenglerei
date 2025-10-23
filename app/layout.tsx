@@ -1,13 +1,8 @@
 import './globals.css';
-import { Navbar } from '@/components/Navbar';
+import { SiteShell } from '@/components/SiteShell';
 import type { Metadata } from 'next';
-import {
-  Montserrat,
-  Rajdhani,
-  Space_Grotesk,
-  Titillium_Web,
-} from 'next/font/google';
-import React from 'react';
+import { Montserrat, Space_Grotesk, Titillium_Web } from 'next/font/google';
+import React, { ReactNode } from 'react';
 
 const spacegrotesk = Space_Grotesk({
   subsets: ['latin'],
@@ -26,11 +21,6 @@ const titillium = Titillium_Web({
   variable: '--font-titillium',
 });
 
-// const rajdhani = Rajdhani({
-//   weight: ['300', '400', '500', '600', '700'],
-//   subsets: ['latin'],
-//   variable: '--font-rajdhani',
-// });
 export const metadata: Metadata = {
   title: 'Website der Kunstspenglerei Andreas Speiser, 1190 Wien',
   description:
@@ -40,7 +30,7 @@ export const metadata: Metadata = {
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode;
+  children: ReactNode;
 }>) {
   return (
     <html
@@ -48,10 +38,7 @@ export default function RootLayout({
       className={`${montserrat.variable} ${titillium.variable}  ${spacegrotesk.variable} `}
     >
       <body>
-        <div style={{ position: 'relative', width: '100%', height: '100vh' }}>
-          <Navbar />
-          <main style={{ paddingTop: '0rem' }}>{children}</main>
-        </div>
+        <SiteShell>{children}</SiteShell>
       </body>
     </html>
   );
