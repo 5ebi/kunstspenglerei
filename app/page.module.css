@@ -1,0 +1,10 @@
+.containerMain {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--background);
+  justify-content: center;
+  align-items: center;
+}
+
+.h2 {
+}

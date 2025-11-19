@@ -1,67 +1,56 @@
 .navbar {
-  position: fixed;
-  top: 0.2rem;
-  z-index: 10;
-  color: white;
-  height: 2.5rem;
-  width: 100%;
-}
-
-.navbarBlack {
+  /* position: fixed; */
+  z-index: 1000;
   color: black;
+  height: 5rem;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
 }
 
 .navList {
   display: flex;
-  list-style-type: none;
+  flex-direction: row;
   margin: 0;
   padding: 0;
   height: 100%;
   align-items: center;
   justify-content: center;
+  gap: 2rem;
 }
 
-.link {
+.linkItem {
+  color: black;
   text-decoration: none;
-  color: rgba(255, 255, 255, 0.8);
+  font-weight: 500;
+  font-size: 1rem;
+  transition: all 0.2s ease;
   position: relative;
-  padding: 0.3rem 1rem;
-  font-weight: 400;
-  font-size: 1.1rem;
+}
+
+.linkItemLogo {
+  color: black;
+  text-decoration: none;
+  font-size: 1rem;
   letter-spacing: 0.3px;
   transition: all 0.2s ease;
-  font-family: var(--font-spacegrotesk);
 }
 
-.link:hover {
-  color: white;
-  font-weight: 400;
+.linkItem:hover {
+  font-weight: 600;
 }
 
-.link::after {
+.linkItem::after {
   content: '';
-  position: absolute;
   bottom: 0;
   left: 50%;
   width: 0;
   height: 1px;
-  background: rgba(255, 255, 255, 0.7);
+  background: rgba(0, 0, 0, 0.7);
   transition: all 0.3s ease;
   transform: translateX(-50%);
 }
 
-.link:hover::after {
+.linkItem:hover::after {
   width: 60%;
-}
-
-.navbarBlack .link {
-  color: rgba(0, 0, 0, 0.8);
-}
-
-.navbarBlack .link:hover {
-  color: black;
-}
-
-.navbarBlack .link::after {
-  background: black;
 }

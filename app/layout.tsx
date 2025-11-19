@@ -1,30 +1,25 @@
-import './globals.css';
-import { SiteShell } from '@/components/SiteShell';
 import type { Metadata } from 'next';
-import { Montserrat, Space_Grotesk, Titillium_Web } from 'next/font/google';
-import React, { ReactNode } from 'react';
-
-const spacegrotesk = Space_Grotesk({
-  subsets: ['latin'],
-  variable: '--font-spacegrotesk',
-});
+import { Montserrat, Space_Grotesk } from 'next/font/google';
+import { ReactNode } from 'react';
+import { NavbarDesktop } from '@/components/NavbarDesktop';
+import { NavbarMobile } from '@/components/NavbarMobile';
+import { Footer } from '@/components/Footer';
+import './globals.css';
 
 const montserrat = Montserrat({
   subsets: ['latin'],
-  variable: '--font-montserrat',
+  variable: '--font-1',
 });
 
-const titillium = Titillium_Web({
-  weight: ['200', '300', '400', '600', '700', '900'],
-  style: ['normal', 'italic'],
+const spacegrotesk = Space_Grotesk({
   subsets: ['latin'],
-  variable: '--font-titillium',
+  variable: '--font-2',
 });
 
 export const metadata: Metadata = {
-  title: 'Website der Kunstspenglerei Andreas Speiser, 1190 Wien',
+  title: 'Kunstspenglerei Andreas Speiser',
   description:
-    'Diese Website präsentiert die Spenglerei geleitet von Andreas Speiser in der dritten Generation. Sie zeigt die Schönheit und Präzision der Spenglerkunst eines traditionellen Familienunternehmens in Wien.',
+    'Diese Website präsentiert die Kunstspenglerei geleitet von Andreas Speiser in der dritten Generation. Sie zeigt die Schönheit und Präzision der Spenglerkunst eines traditionellen Familienunternehmens in 1190 Wien.',
 };
 
 export default function RootLayout({
@@ -35,10 +30,15 @@ export default function RootLayout({
   return (
     <html
       lang="de"
-      className={`${montserrat.variable} ${titillium.variable}  ${spacegrotesk.variable} `}
+      className={`${montserrat.variable} ${spacegrotesk.variable} `}
     >
-      <body>
-        <SiteShell>{children}</SiteShell>
+      <body
+        style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}
+      >
+        <NavbarDesktop />
+        {/* <NavbarMobile /> */}
+        <main className="containerMain">{children}</main>
+        <Footer />
       </body>
     </html>
   );

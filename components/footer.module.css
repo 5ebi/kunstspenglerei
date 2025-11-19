@@ -1,0 +1,18 @@
+.footer {
+  background-color: var(--background);
+  height: 5rem;
+  width: 100%;
+}
+
+.footerList {
+  display: flex;
+  flex-direction: row;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  font-size: 1rem;
+  font-weight: 400;
+}
