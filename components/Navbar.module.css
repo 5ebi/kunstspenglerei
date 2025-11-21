@@ -1,11 +1,15 @@
 .navbar {
   /* position: fixed; */
+  display: grid;
   z-index: 1000;
-  color: black;
+  color: var(--textColor);
   height: 5rem;
   width: 100%;
-  align-items: center;
-  justify-content: center;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: flex-end;
+  /* width: min(100%, 1200px); */
+  margin: 0 auto;
+  padding: 0rem 3rem 0rem 2rem;
 }
 
 .navList {
@@ -14,43 +18,96 @@
   margin: 0;
   padding: 0;
   height: 100%;
-  align-items: center;
+  align-items: flex-end;
   justify-content: center;
-  gap: 2rem;
+  gap: 1.4rem;
+  justify-self: center;
 }
 
 .linkItem {
-  color: black;
+  color: var(--textColor);
   text-decoration: none;
   font-weight: 500;
   font-size: 1rem;
   transition: all 0.2s ease;
   position: relative;
+  display: inline-block;
+  letter-spacing: 0.5px;
+  line-height: 1;
+  padding-top: 0;
 }
 
-.linkItemLogo {
-  color: black;
+.logo {
+  color: var(--textColor);
   text-decoration: none;
+  /* letter-spacing: 0px; */
+  font-weight: 900;
+  display: flex;
+  align-items: baseline;
+  gap: 0.1rem;
+  line-height: 1;
+  justify-self: start;
+}
+
+.logo1 {
+  font-size: 1.5rem;
+  font-weight: 900;
+  line-height: 1;
+  color: var(--colorAccent);
+}
+.logo2 {
+  font-size: 1.5rem;
+  font-weight: 400;
+  /* letter-spacing: 2px; */
+  line-height: 1;
+}
+
+.kontakt {
+  justify-self: end;
+  display: flex;
+  height: 100%;
+  align-items: flex-end;
+}
+
+.linkItemKontakt {
+  color: var(--textColor);
+  text-decoration: none;
+  font-weight: 500;
   font-size: 1rem;
-  letter-spacing: 0.3px;
   transition: all 0.2s ease;
+  position: relative;
+  display: inline-block;
+  letter-spacing: 0.5px;
+  line-height: 1;
+  padding: 0.5rem;
+  border: solid 1px var(--colorAccent);
+  border-radius: 0.5rem;
+}
+
+.linkItemKontakt:hover {
+  color: var(--background);
+  border: solid 1px var(--colorAccent);
+  background-color: var(--colorAccent);
 }
 
 .linkItem:hover {
-  font-weight: 600;
+  font-weight: 500;
+  color: var(--colorAccent);
 }
 
 .linkItem::after {
   content: '';
-  bottom: 0;
+  position: absolute;
+  display: block;
+  bottom: -1px;
   left: 50%;
   width: 0;
   height: 1px;
-  background: rgba(0, 0, 0, 0.7);
+  background: var(--colorAccent);
   transition: all 0.3s ease;
   transform: translateX(-50%);
 }
 
 .linkItem:hover::after {
-  width: 60%;
+  width: 99%;
 }

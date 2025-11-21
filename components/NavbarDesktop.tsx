@@ -4,6 +4,10 @@ import styles from './navbar.module.css';
 export function NavbarDesktop() {
   return (
     <nav className={styles.navbar}>
+      <div className={styles.logo}>
+        <div className={styles.logo1}>Kunstspenglerei</div>
+        <div className={styles.logo2}>Andreas Speiser</div>
+      </div>
       <ul className={styles.navList}>
         <li>
           <Link className={styles.linkItem} href={'/'}>
@@ -20,12 +24,12 @@ export function NavbarDesktop() {
             Referenzen
           </Link>
         </li>
-        <li>
-          <Link className={styles.linkItem} href={'/kontakt'}>
-            Kontakt
-          </Link>
-        </li>
       </ul>
+      <div className={styles.kontakt}>
+        <Link className={styles.linkItemKontakt} href={'/kontakt'}>
+          Kontakt
+        </Link>
+      </div>
     </nav>
   );
 }

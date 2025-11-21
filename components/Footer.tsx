@@ -5,8 +5,8 @@ export function Footer() {
   return (
     <div className={styles.footer}>
       <ul className={styles.footerList}>
-        <li>footer1</li>
-        <li>footer2</li>
+        <li>Imressum</li>
+        <li>Datenschutz</li>
       </ul>
     </div>
   );

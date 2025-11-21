@@ -17,6 +17,10 @@
   flex-direction: row;
 }
 
+.textContainer h2 {
+  font-size: 3.5rem;
+}
+
 .textContainer:hover {
   transform: translateY(-2px);
 }

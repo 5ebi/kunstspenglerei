@@ -1,6 +1,7 @@
 :root {
-  --background: #ededed;
-  --textColor: black;
+  --background: rgb(240, 240, 240);
+  --textColor: rgb(24, 24, 24);
+  --colorAccent: rgb(137, 102, 12);
 }
 
 html,
@@ -25,7 +26,7 @@ li {
 }
 
 h1 {
-  font-size: 8rem;
+  font-size: 4rem;
   letter-spacing: -1px;
 }
 
