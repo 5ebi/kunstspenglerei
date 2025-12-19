@@ -1,8 +1,7 @@
 import type { Metadata } from 'next';
 import { Montserrat, Space_Grotesk } from 'next/font/google';
 import { ReactNode } from 'react';
-import { NavbarDesktop } from '@/components/NavbarDesktop';
-import { NavbarMobile } from '@/components/NavbarMobile';
+import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
 import './globals.css';
 
@@ -35,8 +34,7 @@ export default function RootLayout({
       <body
         style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}
       >
-        <NavbarDesktop />
-        {/* <NavbarMobile /> */}
+        <Navbar />
         <main className="containerMain">{children}</main>
         <Footer />
       </body>

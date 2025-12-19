@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import styles from './navbar.module.css';
 
-export function NavbarDesktop() {
+export function Navbar() {
   return (
     <nav className={styles.navbar}>
       <div className={styles.logo}>
