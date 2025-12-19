@@ -11,7 +11,7 @@ export function Navbar() {
       <ul className={styles.navList}>
         <li>
           <Link className={styles.linkItem} href={'/'}>
-            Startseite!
+            Startseite!!
           </Link>
         </li>
         <li>
